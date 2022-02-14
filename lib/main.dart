@@ -1,5 +1,8 @@
+import 'package:demoff/sliverPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'columnPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,72 +64,80 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
 
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      // isScrollControlled: true,
-      constraints: const BoxConstraints(
-        maxHeight: 200,
-      ),
-      builder: (context) {
-        return Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-          ),
-          padding: const EdgeInsets.only(top: 0, left: 10, right: 10.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('关闭'),
-                  ),
-                  const Expanded(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        '时间选择器',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      showAboutDialog(
-                        context: context,
-                        children: [
-                          Text("${time}"),
-                        ],
-                      );
-                    },
-                    child: const Text('确定'),
-                  )
-                ],
-              ),
-              Expanded(
-                child: CupertinoDatePicker(
-                  initialDateTime: time,
-                  onDateTimeChanged: (v) {
-                    print("$v");
-                    time = v;
-                  },
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const ColumnPage()),
     );
+
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(builder: (context) => const SliverPage()),
+    // );
+
+    // showModalBottomSheet(
+    //   context: context,
+    //   backgroundColor: Colors.transparent,
+    //   // isScrollControlled: true,
+    //   constraints: const BoxConstraints(
+    //     maxHeight: 200,
+    //   ),
+    //   builder: (context) {
+    //     return Container(
+    //       decoration: const BoxDecoration(
+    //         color: Colors.white,
+    //         borderRadius: BorderRadius.all(Radius.circular(15)),
+    //       ),
+    //       padding: const EdgeInsets.only(top: 0, left: 10, right: 10.0),
+    //       child: Column(
+    //         mainAxisSize: MainAxisSize.min,
+    //         children: [
+    //           Row(
+    //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //             children: [
+    //               TextButton(
+    //                 onPressed: () {
+    //                   Navigator.of(context).pop();
+    //                 },
+    //                 child: const Text('关闭'),
+    //               ),
+    //               const Expanded(
+    //                 child: Align(
+    //                   alignment: Alignment.center,
+    //                   child: Text(
+    //                     '时间选择器',
+    //                     style: TextStyle(
+    //                       color: Colors.blue,
+    //                       fontSize: 20,
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ),
+    //               TextButton(
+    //                 onPressed: () {
+    //                   Navigator.of(context).pop();
+    //                   showAboutDialog(
+    //                     context: context,
+    //                     children: [
+    //                       Text("${time}"),
+    //                     ],
+    //                   );
+    //                 },
+    //                 child: const Text('确定'),
+    //               )
+    //             ],
+    //           ),
+    //           Expanded(
+    //             child: CupertinoDatePicker(
+    //               initialDateTime: time,
+    //               onDateTimeChanged: (v) {
+    //                 print("$v");
+    //                 time = v;
+    //               },
+    //             ),
+    //           ),
+    //         ],
+    //       ),
+    //     );
+    //   },
+    // );
   }
 
   @override
