@@ -8,12 +8,12 @@ class StateTest with ChangeNotifier, DiagnosticableTreeMixin {
   int? get userId => _userId;
   String? get userName => _userName;
 
-  setUserId(int uid) {
+  void setUserId(int uid) {
     _userId = uid;
     notifyListeners();
   }
 
-  setUserName(String name) {
+  void setUserName(String name) {
     _userName = name;
     notifyListeners();
   }
