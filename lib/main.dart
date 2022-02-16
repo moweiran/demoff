@@ -1,3 +1,5 @@
+import 'package:demoff/CounterNotifier.dart';
+import 'package:demoff/main4.dart';
 import 'package:demoff/sliverPage.dart';
 import 'package:demoff/state-test.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,8 +14,9 @@ void main() {
       providers: [
         // Provider<StateTest>(create: (_) => StateTest()),
         ChangeNotifierProvider(create: (context) => StateTest()),
+        ChangeNotifierProvider(create: (context) => CounterNotifier()),
       ],
-      child: const MyApp(),
+      child: MyApp4(),
     ),
   );
 }
